@@ -1,33 +1,44 @@
-import { useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
-import { MainTitle } from './App.styled';
-import Section from 'components/Section/Section';
-import ContactForm from 'components/ContactForm/ContactForm';
-import ContactList from 'components/ContactList/ContactList';
-import Filter from 'components/Filter/Filter';
+import { lazy, Suspense, useEffect } from 'react';
+import { Switch, Route, Redirect } from 'react-router';
+import Container from 'components/Container/Container';
+import AppBar from 'components/AppBar/AppBar';
 import Loader from 'components/Loader/Loader';
-import {
-  getLoading,
-  gotError,
-} from 'redux/contacts-selectors/ContactList-Filter-selectors';
+import HomeView from './views/HomeView/HomeView';
+import LoginView from './views/LoginView/LoginView';
+import RegisterView from 'views/RegisterView/RegisterView';
+import ContactsView from './views/ContactsView/ContactsView';
+import { useDispatch } from 'react-redux';
+import authOperations from 'redux/auth/auth-operations';
 
-export default function CreateApp() {
-  const isLoading = useSelector(getLoading);
-  const hasError = useSelector(gotError);
+function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
-    <>
-      <MainTitle>Phonebook</MainTitle>
-      <ContactForm />
-      <Section title="Contacts">
-        <Filter />
-        {hasError &&
-          toast.error(
-            `We are sorry, but something went wrong. Please, try again later.`,
-          )}
-        <ContactList />
-      </Section>
-      <ToastContainer autoClose={3000} />
-      {isLoading && <Loader />}
-    </>
+    <Container>
+      <AppBar />
+      <Suspense fallback={<Loader />}>
+        <Switch>
+          <Route path="/" exact>
+            <HomeView />
+          </Route>
+          <Route path="/register" exact>
+            <RegisterView />
+          </Route>
+          <Route path="/login">
+            <LoginView />
+          </Route>
+          <Route path="/contacts">
+            <ContactsView />
+          </Route>
+          <Redirect to="/" />
+        </Switch>
+      </Suspense>
+    </Container>
   );
 }
+
+export default App;

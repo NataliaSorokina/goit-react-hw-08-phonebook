@@ -1,3 +1,4 @@
+// import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import {
   fetchContactsRequest,
@@ -11,7 +12,7 @@ import {
   deleteContactError,
 } from './contacts-actions';
 
-axios.defaults.baseURL = 'http://localhost:4040';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 export const fetchContacts = () => async dispatch => {
   dispatch(fetchContactsRequest());
