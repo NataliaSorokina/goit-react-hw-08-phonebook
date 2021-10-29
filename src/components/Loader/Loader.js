@@ -10,7 +10,7 @@ function ReactLoader() {
         color="#00BFFF"
         height={80}
         width={80}
-        timeout={5000}
+        // timeout={2000}
       />
     </LoaderContainer>
   );
