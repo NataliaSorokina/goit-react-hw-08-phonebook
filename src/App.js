@@ -43,21 +43,16 @@ function App() {
           <AppBar />
           <Switch>
             <Suspense fallback={<Loader />}>
-              <PublicRoute exact path="/">
+              <PublicRoute exact path="/" restricted>
                 <HomeView />
               </PublicRoute>
               <PublicRoute exact path="/register" restricted>
                 <RegisterView />
               </PublicRoute>
-              <PublicRoute
-                exact
-                path="/login"
-                redirectTo="/contacts"
-                restricted
-              >
+              <PublicRoute exact path="/login" restricted>
                 <LoginView />
               </PublicRoute>
-              <PrivateRoute path="/contacts" redirectTo="/login">
+              <PrivateRoute path="/contacts">
                 <ContactsView />
               </PrivateRoute>
             </Suspense>
