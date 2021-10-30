@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Wrapper = styled.div`
-  max-width: 520px;
+export const Case = styled.div`
+  padding: 0 15px;
   margin: 0 auto;
 `;

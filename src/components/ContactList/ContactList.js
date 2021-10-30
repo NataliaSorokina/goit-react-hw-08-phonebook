@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { fetchContacts, deleteContact } from 'redux/contacts-operations';
 import { getFilteredContacts } from 'redux/contacts-selectors/ContactList-Filter-selectors';
 import { List, ListItem } from 'components/ContactList/ContactList.styled';
-import { Button } from 'components/Button/Button.styled';
+import { Button } from 'components/FormComponents/FormComponents.styled';
 
 const ContactList = () => {
   const contacts = useSelector(getFilteredContacts);

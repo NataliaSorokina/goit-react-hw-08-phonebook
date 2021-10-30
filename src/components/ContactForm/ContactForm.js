@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from 'redux/contacts-operations';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import { addContact } from 'redux/contacts-operations';
 import { getItems } from 'redux/contacts-selectors/ContactForm-selectors';
-import { Form, Label, Input } from './ContactForm.styled';
-import { Button } from 'components/Button/Button.styled';
+import {
+  Form,
+  Label,
+  Input,
+  Button,
+} from 'components/FormComponents/FormComponents.styled';
 
 export default function SubmitForm() {
   const [name, setName] = useState('');

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MinorTitle } from './Section.styled';
+import { Wrapper, MinorTitle } from './Section.styled';
 
 const Section = ({ title, children }) => {
   return (
-    <section>
+    <Wrapper>
       <MinorTitle>{title}</MinorTitle>
       {children}
-    </section>
+    </Wrapper>
   );
 };
 

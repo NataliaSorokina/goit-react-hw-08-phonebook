@@ -1,6 +1,13 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from 'redux/auth/auth-operations';
+import Section from 'components/Section/Section';
+import {
+  Form,
+  Label,
+  Input,
+  Button,
+} from 'components/FormComponents/FormComponents.styled';
 
 export default function RegisterView() {
   const dispatch = useDispatch();
@@ -30,37 +37,35 @@ export default function RegisterView() {
   };
 
   return (
-    <div>
-      <h1>Registration page</h1>
-
-      <form onSubmit={handleSubmit} autoComplete="off">
-        <label>
+    <Section title="Please enter your data">
+      <Form onSubmit={handleSubmit} autoComplete="off">
+        <Label>
           Name
-          <input type="text" name="name" value={name} onChange={handleChange} />
-        </label>
+          <Input type="text" name="name" value={name} onChange={handleChange} />
+        </Label>
 
-        <label>
+        <Label>
           Email
-          <input
+          <Input
             type="email"
             name="email"
             value={email}
             onChange={handleChange}
           />
-        </label>
+        </Label>
 
-        <label>
+        <Label>
           Password
-          <input
+          <Input
             type="password"
             name="password"
             value={password}
             onChange={handleChange}
           />
-        </label>
+        </Label>
 
-        <button type="submit">Register</button>
-      </form>
-    </div>
+        <Button type="submit">Register</Button>
+      </Form>
+    </Section>
   );
 }

@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { filterContact } from 'redux/contacts-actions';
 import { getFilter } from 'redux/contacts-selectors/ContactList-Filter-selectors';
-import { FilterLabel, FilterInput } from './Filter.styled';
+import { FilterLabel } from './Filter.styled';
+import { Input } from 'components/FormComponents/FormComponents.styled';
 
 const Filter = () => {
   const value = useSelector(getFilter);
@@ -12,7 +13,7 @@ const Filter = () => {
   return (
     <FilterLabel>
       Find contacts by name{' '}
-      <FilterInput
+      <Input
         type="text"
         value={value}
         onChange={event => dispatch(filterContact(event.target.value))}

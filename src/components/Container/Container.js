@@ -1,5 +1,6 @@
+import { Case } from './Container.styled';
 function Container({ children }) {
-  return <div className="">{children}</div>;
+  return <Case>{children}</Case>;
 }
 
 export default Container;

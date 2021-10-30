@@ -7,11 +7,12 @@ const Navigation = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
   return (
     <nav>
-      <NavigLink exact to="/">
-        {' '}
-        Home{' '}
-      </NavigLink>
-      {isLoggedIn && (
+      {!isLoggedIn ? (
+        <NavigLink exact to="/">
+          {' '}
+          Home{' '}
+        </NavigLink>
+      ) : (
         <NavigLink exact to="/contacts">
           {' '}
           Contacts{' '}

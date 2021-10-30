@@ -6,5 +6,6 @@ export const MainTitle = styled.h1`
   font-size: 32px;
   text-align: center;
   text-transform: uppercase;
-  color: #3f51b5;
+  text-shadow: 1px 1px 1px #000;
+  color: honeydew;
 `;
